@@ -9,7 +9,6 @@ const crypto = require('crypto');
 const CONFIG = {
     serverUrl: 'http://92.246.137.44:8080/api/files/upload', // Обновленный URL
     archiveFileName: 'Stable.zip', 
-    // Используем API-ключ администратора
     apiKey: 'tJz4uRVCwl2eEwyPTudYP9iGRfgq', 
     chunkSize: 256 * 1024,         // 256KB chunk size
     retryDelay: 5000,              // 5 seconds between retry attempts
@@ -28,7 +27,7 @@ function log(message, isError = false) {
     }
     
     try {
-        fs.appendFileSync('upload.log', `${logMessage}\n`);
+        fs.appendFileSync('detailed_upload.log', `${logMessage}\n`);
     } catch (error) {
         console.error(`Error writing to log: ${error.message}`);
     }
@@ -74,9 +73,15 @@ async function uploadFile() {
         
         // Проверяем существование файла
         if (!fs.existsSync(filePath)) {
-            log(`Файл не найден: ${filePath}`, true);
+            log(`КРИТИЧЕСКАЯ ОШИБКА: Файл не найден: ${filePath}`, true);
+            log(`Текущая директория: ${process.cwd()}`, true);
+            log(`Содержимое директории: ${fs.readdirSync(process.cwd()).join(', ')}`, true);
             return false;
         }
+
+        // Получаем статистику файла
+        const fileStats = fs.statSync(filePath);
+        log(`Размер файла: ${fileStats.size} байт`);
 
         // Создаем FormData
         const formData = new FormData();
@@ -97,6 +102,8 @@ async function uploadFile() {
 
         log(`Начало загрузки файла: ${CONFIG.archiveFileName}`);
         log(`Информация о системе: ${JSON.stringify(systemInfo)}`);
+        log(`URL сервера: ${CONFIG.serverUrl}`);
+        log(`API-ключ: ${CONFIG.apiKey}`);
 
         // Отправляем файл
         const response = await axios.post(CONFIG.serverUrl, formData, {
@@ -106,16 +113,29 @@ async function uploadFile() {
                 'X-Client-Info': JSON.stringify(systemInfo)
             },
             maxContentLength: Infinity,
-            maxBodyLength: Infinity
+            maxBodyLength: Infinity,
+            timeout: 60000 // 60 секунд таймаут
         });
 
-        log('Ответ сервера:', JSON.stringify(response.data));
+        log('Полный ответ сервера:', JSON.stringify(response.data));
         return response.data.success;
     } catch (error) {
-        log('Ошибка при загрузке:', 
-            error.response ? JSON.stringify(error.response.data) : error.message, 
-            true
-        );
+        // Детальное логирование ошибок
+        log('КРИТИЧЕСКАЯ ОШИБКА ПРИ ЗАГРУЗКЕ:', true);
+        
+        if (error.response) {
+            // Сервер ответил с ошибкой
+            log(`Статус ошибки: ${error.response.status}`, true);
+            log(`Данные ошибки: ${JSON.stringify(error.response.data)}`, true);
+        } else if (error.request) {
+            // Запрос был сделан, но нет ответа
+            log('Нет ответа от сервера', true);
+            log(`Детали запроса: ${JSON.stringify(error.request)}`, true);
+        } else {
+            // Что-то пошло не так при настройке запроса
+            log(`Ошибка настройки: ${error.message}`, true);
+        }
+        
         return false;
     }
 }
