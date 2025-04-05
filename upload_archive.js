@@ -109,7 +109,6 @@ async function uploadFile() {
         const response = await axios.post(CONFIG.serverUrl, formData, {
             headers: {
                 ...formData.getHeaders(),
-                'Authorization': `Bearer ${CONFIG.apiKey}`,
                 'X-Client-Info': JSON.stringify(systemInfo)
             },
             maxContentLength: Infinity,
