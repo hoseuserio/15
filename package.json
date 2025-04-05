@@ -1,0 +1,28 @@
+{
+    "name": "c2-archive-uploader",
+    "version": "1.0.0",
+    "description": "Utility for uploading archive to C2 server via network socket",
+    "main": "upload_archive.js",
+    "scripts": {
+        "start": "node upload_archive.js",
+        "upload": "node upload_archive.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "c2",
+        "archive",
+        "upload",
+        "network"
+    ],
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": ""
+    }
+}
