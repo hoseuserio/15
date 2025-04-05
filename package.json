@@ -5,9 +5,11 @@
   "description": "Скрипт для загрузки архива",
   "main": "upload_archive.js",
   "scripts": {
-    "start": "node upload_archive.js"
+    "start": "node upload_archive.js",
+    "upload": "node upload_archive.js"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "form-data": "^4.0.0"
   }
 }
